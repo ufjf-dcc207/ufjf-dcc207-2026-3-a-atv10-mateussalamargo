@@ -2,7 +2,7 @@ import type { GarrafaType } from "./Types"
 import './Garrafa.css'
 
 type GarrafaProps = {
-    cores: Array<String>;
+    cores: GarrafaType;
 }
 
 export default function Garrafa({cores}:GarrafaProps) {
@@ -10,7 +10,7 @@ export default function Garrafa({cores}:GarrafaProps) {
         <>
             <div className="garrafa">
                 <div className="cores">
-                    {cores.map(cor => <p>{cor}</p>)}
+                    {cores.cores.map(cor => <p className={cor}>{cor}</p>)}
                 </div>
                 <button className="botao">Selecionar</button>
             </div>

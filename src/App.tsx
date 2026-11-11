@@ -4,20 +4,20 @@ import type { GarrafaType } from './Types'
 
 const grupo:Array<GarrafaType> = [
   {
-    cores: ["vermelho","azul","verde","vazio"]
+    cores: ["red","blue","green",""]
   },
   {
-    cores: ["vermelho","verde","vazio","vazio"]
+    cores: ["red","green","",""]
   },
   {
-    cores: ["vermelho","vazio","vazio","vazio"]
+    cores: ["red","","",""]
   },
 ]
 
 export default function App() {
   return (
     <>
-      <Garrafa cores={["vermelho","azul","verde","vazio"]}/>
+      <dl>{grupo.map(cores => <Garrafa cores={cores}/>)}</dl>
     </>
   )
 }
