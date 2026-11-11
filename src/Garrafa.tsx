@@ -10,7 +10,7 @@ export default function Garrafa({cores}:GarrafaProps) {
         <>
             <div className="garrafa">
                 <div className="cores">
-                    {cores.cores.map(cor => <p className={cor}>{cor}</p>)}
+                    {cores.cores.map((cor, i) => <div key={i} className={`segmento ${cor}`}></div>)}
                 </div>
                 <button className="botao">Selecionar</button>
             </div>

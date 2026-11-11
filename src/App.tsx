@@ -17,7 +17,9 @@ const grupo:Array<GarrafaType> = [
 export default function App() {
   return (
     <>
-      <dl>{grupo.map(cores => <Garrafa cores={cores}/>)}</dl>
+      <div className="jogo">
+        {grupo.map((garrafa, i) => <Garrafa key={i} cores={garrafa}/>)}
+      </div>
     </>
   )
 }
