@@ -2,17 +2,15 @@ import { useState } from "react"
 import Garrafa from './Garrafa'
 import type { GarrafaType } from './Types'
 import './Jogo.css'
+import { despejar, podeDespejar } from './logica'
+
 
 const grupo:Array<GarrafaType> = [
-  {
-    cores: ["red","blue","green",""]
-  },
-  {
-    cores: ["red","green","",""]
-  },
-  {
-    cores: ["red","","",""]
-  },
+  { cores: ["red", "blue", "green", "red"] },
+  { cores: ["blue", "green", "red", "blue"] },
+  { cores: ["green", "red", "blue", "green"] },
+  { cores: ["", "", "", ""] },
+  { cores: ["", "", "", ""] },
 ]
 
 export default function Jogo() {
@@ -23,8 +21,14 @@ export default function Jogo() {
         if(selecionada === i) {
             setSelecionada(null)
         }
-        else {
+        else if(selecionada === null){
             setSelecionada(i)
+        }
+        else {
+        if (podeDespejar(garrafas[selecionada], garrafas[i])) {
+            setGarrafas(despejar(garrafas, selecionada, i))
+        }
+        setSelecionada(null)
         }
     }
 
