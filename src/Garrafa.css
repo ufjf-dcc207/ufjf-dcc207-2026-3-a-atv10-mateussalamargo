@@ -1,0 +1,18 @@
+.cores {
+    display: flex;
+    flex-direction: column;
+    border: 2px black solid;
+    width: 25px;
+    height: 50px;
+}
+
+.garrafa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    font-size: 10px;
+}
