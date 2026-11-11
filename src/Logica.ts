@@ -2,9 +2,14 @@ import type { GarrafaType } from "./Types"
 
 
 function corDoTopo(garrafa: GarrafaType): string {
-    if(garrafa.cores.filter(cor => cor !== "").at(-1) !== undefined) {
-        return garrafa.cores.filter(cor => cor !== "").at(-1);
+    const topo = garrafa.cores.filter(cor => cor !== "").at(-1)
+    if(topo === undefined) {
+        return "";
     }
+    else {
+        return topo;
+    }
+
 }
 
 function temEspaco(garrafa: GarrafaType): boolean {
@@ -12,13 +17,14 @@ function temEspaco(garrafa: GarrafaType): boolean {
 }
 
 export function podeDespejar(origem: GarrafaType, destino: GarrafaType): boolean {
-    let corOrigem = corDoTopo(origem);
-    let corDestino = corDoTopo(destino);
+    const corOrigem = corDoTopo(origem);
+    const corDestino = corDoTopo(destino);
 
-    if(temEspaco(destino) && corOrigem === corDestino) {
-        return true;
-    }
-    else {
+    if(!temEspaco(destino)) {
         return false;
     }
+    if(corOrigem === "") {
+        return false;
+    }
+    return corDestino === "" || corOrigem === corDestino;
 }
