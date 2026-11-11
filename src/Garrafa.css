@@ -6,6 +6,10 @@
     height: 160px;
 }
 
+.selecionada .cores {
+    border-color: gold;
+}
+
 .segmento {
     flex: 1;
 }

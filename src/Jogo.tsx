@@ -16,12 +16,22 @@ const grupo:Array<GarrafaType> = [
 ]
 
 export default function Jogo() {
-    const[garrafas,setGarrafas] = useState();
-    
+    const[garrafas,setGarrafas] = useState(grupo);
+    const [selecionada, setSelecionada] = useState<number | null>(null);
+
+    function clicarGarrafa(i: number) {
+        if(selecionada === i) {
+            setSelecionada(null)
+        }
+        else {
+            setSelecionada(i)
+        }
+    }
+
     return (
         <>
             <div className="jogo">
-                {grupo.map((garrafa, i) => <Garrafa key={i} cores={garrafa}/>)}
+                {garrafas.map((garrafa, i) => <Garrafa key={i} cores={garrafa} selecionada={i === selecionada} aoClicar={() => clicarGarrafa(i)}/>)}
             </div>
         </>
     )
